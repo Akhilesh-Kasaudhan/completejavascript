@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events </title>
+</head>
+<body style="background-color: #444;color: aliceblue;">
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="images">
+            <li><img src="https://images.unsplash.com/photo-1552645265-1d8c244be6f9?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBob3Rvc2hvcHxlbnwwfHwwfHx8MA%3D%3D"  id="photoshop" width="200x" alt="photoshop"></li>
+            <li><img src="https://images.unsplash.com/photo-1491884662610-dfcd28f30cfb?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  id="japan" width="200x" alt=""></li>
+            <li><img src="https://images.unsplash.com/photo-1545641203-7d072a14e3b2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHJpdmVyfGVufDB8fDB8fHww"  id="river" width="200x" alt=""></li>
+            <li><img src="https://images.unsplash.com/photo-1543549790-8b5f4a028cfb?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG93bHxlbnwwfHwwfHx8MA%3D%3D"  id="owl" width="200x" alt=""></li>
+            <li><img src="https://plus.unsplash.com/premium_photo-1689870831709-f3f2ed51e6a2?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cHJheWVyfGVufDB8fDB8fHww"  id="prayer" width="200x" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+            <!-- <li><p style="color: aliceblue;"  id="google">Google</p></li> -->
+        </ul>
+    </div>
+    <script>
+        // document.getElementById('owl').onclick=function(){
+        //     alert("Owl clicked!")
+        // }
+
+
+
+    //type,timestamp,defaultPrevented
+    //target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY , pageX, pageY
+    //altKey, ctrlKey, shiftKey, keyCode
+    
+    // document.getElementById('images').addEventListener('click',function(e){
+    //       console.log("clicked inside ul");
+    //     },true);
+
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //       console.log("owl clicked");
+    //       e.stopPropagation()
+        
+    //     })
+    //     document.querySelector('#google').addEventListener('click',function(e){
+    //         console.log("clicked")
+    //         e.preventDefault()  //eventpropagation
+    //         // e.stopPropagation(true)   //stops the event from bubbling up and reaching other elements
+    //     })
+
+    //events---spillover------------ 
+        document.getElementById('images').addEventListener('click', function (e){
+    //    console.log(e.target.parentNode);
+    //    let removeIt=e.target.parentNode;
+       if(e.target.tagName==='IMG'){
+          console.log(e.target.id)
+          let removeIt=e.target.parentNode;
+          removeIt.remove();
+
+       }
+    //    if(removeIt.tagName==='LI'){
+    //        removeIt.classList.add('removed');
+    //        setTimeout(()=>{
+    //            removeIt.remove();               
+    //        },1000)            
+    //    }
+       
+    //    let removeIt=e.target.parentNode.removeChild(e.target);
+    //    removeIt.parentNode.removeChild(removeIt);
+    // removeIt.remove();
+    })
+    </script>
+</body>
+</html>

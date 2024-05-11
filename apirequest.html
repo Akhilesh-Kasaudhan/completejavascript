@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; padding: 0;box-sizing: border-box;}
+        body{
+            margin: 100px 400px;
+            background-color: #2f2e2e;
+            color: #fff;
+        }
+        .card{
+            height: 500px;
+            width: 300px;
+            background-color: beige;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 50px;
+            box-shadow: 0 0 10px rgba(240, 212, 153, 0.752);
+            position: relative;
+            color: #2f2e2e;
+            overflow: hidden;
+            padding: 10px;
+        } 
+        .card-text{
+            
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="card">
+        <img src="" alt="">
+        <div class="card-text">
+            <h2>akhilesh</h2>
+        <p>20</p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+  
+        const requestUrl="https://api.github.com/users/Akhilesh-Kasaudhan"
+        const xhr=new XMLHttpRequest();
+         // open the connection to server
+         xhr.open("GET",requestUrl);
+         xhr.onreadystatechange=function(){
+            // console.log(xhr.readyState);
+            if (xhr.readyState==4 ){
+                const data=JSON.parse(xhr.responseText);
+                // console.log(typeof data)
+
+              
+              document.querySelector('p').innerHTML="No. of repos:- " +       data.public_repos;
+              document.querySelector('h2').innerHTML ="Name:- "+data.name ;
+              document.querySelector('img').setAttribute("src",data.avatar_url)
+            }
+         }
+         // send the request to the server  
+         xhr.send(null)  ;
+    </script>
+</body>
+</html>

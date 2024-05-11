@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JS</title>
+</head>
+<body>
+    <h1>Chai or Code</h1>
+    <p id="demo">Current time:-</p>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+
+    <script>
+     //setTimeout()-----------------------------------------------------
+       const sayAkhil = function(){
+        console.log("Akhil")
+       } 
+
+    //    setTimeout(sayAkhil,2000);
+    //    clearTimeout(sayAkhil)
+    // setTimeout(function(){
+    //     console.log("Akhil")
+    // },2000)
+
+    let changedText=function(){
+        document.querySelector('h1').innerHTML="Js best series on youtube"
+        document.querySelector('h1').style.backgroundColor="red";
+    }
+ let text= setTimeout(changedText,3000)
+  document.querySelector('#stop').addEventListener('click', ()=>{
+      clearTimeout(text)
+      
+  })    
+
+//setInterval(callback,intervalTime) --------------------------------
+    function sayDate(){
+        let d=new Date();
+        document.getElementById('demo').innerHTML="Current  Time: "+
+        d.getHours( )+":"+d.getMinutes() + ":" + d.getSeconds();
+        
+    }
+//    const interval= setInterval(sayDate,1000);
+let interval;
+    document.querySelector('#start').addEventListener('click', () => {
+         interval=  setInterval(sayDate,1000, 'Current Time');
+          document.querySelector('#start').disabled=true;
+        });
+       
+        document.querySelector('#stop').addEventListener('click', () => {
+            clearInterval(interval);
+           document.querySelector('#start').disabled=false;
+        })  
+   
+       //JavaScript Promises-----------------------------------------
+       var promiseDemo= new Promise((resolve,reject)=>{
+           resolve("Resolved");
+       }).then((value)=>console.log(value)).catch((error)=>console.log(error));
+
+       //Async and Await------------------------------------------
+       async function getData(){
+           return "Hello World!";
+       }
+       console.log(getData());
+
+       async function logData(){
+           try{
+               let data=await getData();
+               console.log(data);
+           }finally{
+               console.log("Finished!");
+           }
+       }
+       logData();
+        
+    </script>
+</body>
+</html>
